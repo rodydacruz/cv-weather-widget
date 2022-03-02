@@ -1,0 +1,6 @@
+	
+	Pajina undi nfazi download de Icons
+	https://www.amcharts.com/free-animated-svg-weather-icons
+
+	Pajina de Glider( um biblioteka peso leve de Javacript pa slider )
+	https://nickpiscitelli.github.io/Glider.js/
