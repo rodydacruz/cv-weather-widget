@@ -1,7 +1,6 @@
 	@font-face {
   font-family: 'rdcCustomFont';
-  src:  url('font/Rattoney.otf') ,
-        url('font/ratoney.ttf');}
+  src:  url('font/imp.ttf');}
 
 .glider-cvww{
 	font-family: 'rdcCustomFont';
@@ -53,9 +52,13 @@
 }
 
 .ilia {
+
+
+
+letter-spacing: .2rem;
 	text-align: center;
 	width: 10rem;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	float: left;
   background-color: rgba(0,0,0,0.8);
   color: white;
