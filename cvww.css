@@ -1,9 +1,12 @@
 	@font-face {
   font-family: 'rdcCustomFont';
   src:  url('font/imp.ttf');}
+  @font-face {
+  font-family: 'rdcCustomFont2';
+  src:  url('font/Rattoney.ttf');}
 
 .glider-cvww{
-	font-family: 'rdcCustomFont';
+	
 	max-width: 450px;
 	min-width: 350px;
 	margin: 1rem;
@@ -42,23 +45,23 @@
 }
 
 .wicon{
-	width: 15rem;
+	width: 20rem;
 	position: relative;
 	float: right;
 }
 .temp {
 	float: right;
+	font-family: 'rdcCustomFont';
 	font-size: 2rem;
 }
 
 .ilia {
-
-
+	font-family: 'rdcCustomFont2';
 
 letter-spacing: .2rem;
 	text-align: center;
 	width: 10rem;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	float: left;
   background-color: rgba(0,0,0,0.8);
   color: white;
