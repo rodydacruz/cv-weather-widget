@@ -12,68 +12,59 @@
 
 	<div class="glider-contain">
 		<div class="glider">
-			<div>
-				<img src="map/bv.svg">
+			<div class="isvg"
+			style="background-image: url('map/bv.svg'">
+				
 				<div class="temp" id="i0"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+				<img  id="ic0" class="wicon" src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/fg.svg'">
 				<div class="temp" id="i1"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic1" class="wicon" src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/st.svg'">
 				<div class="temp" id="i2"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic2"  class="wicon"src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/mi.svg'">
 				<div class="temp" id="i3"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img  id="ic3" class="wicon"src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/bvt.svg'">
 				<div class="temp" id="i4"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic4" class="wicon" src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/sl.svg'">
 				<div class="temp" id="i5"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic5"  class="wicon" src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/sncl.svg'">
 				<div class="temp" id="i6"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic6"  class="wicon" src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/svct.svg'">
 				<div class="temp" id="i7"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic7" class="wicon" src="">
 			</div>
-			<div>
-				<img src="map/bv.svg">
+			<div
+			class="isvg"
+			style="background-image: url('map/stt.svg'">
 				<div class="temp" id="i8"></div>
-				14 C
-				100 km/h
-			<img src="icons/animated/cloudy.svg">
+			<img id="ic8"  class="wicon" src="">
 			</div>
 		</div>
 		<button aria-label="Previous" class="glider-prev">«</button>
@@ -83,14 +74,47 @@
   			<button
   			class="thumb"
   			data-glider-index="0"
-  			style="background-image: url('map/st.svg');">
-  				
+  			style="background-image: url('map/bv.svg');">
   			</button>
   			<button
   			class="thumb"
   			data-glider-index="1"
-  			style="background-image: url('map/bv.svg');">
-  				
+  			style="background-image: url('map/fg.svg');">	
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="2"
+  			style="background-image: url('map/st.svg');">
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="3"
+  			style="background-image: url('map/mi.svg');">	
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="4"
+  			style="background-image: url('map/bvt.svg');">
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="5"
+  			style="background-image: url('map/sl.svg');">	
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="6"
+  			style="background-image: url('map/sncl.svg');">
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="7"
+  			style="background-image: url('map/svct.svg');">	
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="8"
+  			style="background-image: url('map/stt.svg');">	
   			</button>
   		</div>
 
@@ -98,7 +122,7 @@
 	<div id="id01"></div>
 
 <script>
-var caboVerde = [{},{},{},{},{},{},{},{},{}];
+	state = 0;
 function done(){
 	var list=[
 	'brava cabo verde',
@@ -112,34 +136,52 @@ function done(){
 	'saonto antao cabo verde']
 
 	for(i = 0; i <=8; i++){
-		getTimeData(list[i],caboVerde[i]);
+		getTimeData(list[i]);
 	};
 	
 	
 }
-function insert(){
-	for(i = 0; i <=8; i++){
-		document.getElementById('i'+i).innerHTML = caboVerde[i].temp;
-	};
+function setVal(lc,myArr){
+	lc = {'temp':myArr.current.temp_c,'condition':myArr.current.condition.text};
+	document.getElementById('i'+state).innerHTML = lc.temp +' \u2103';
+	setIcon(lc.condition, state);
 
-
-};
-function setVal(timeData,lc){
-	lc = timeData;
+	state = state + 1;
 	console.log(lc);
+	
+
 };
+
+function changeSrc(atr,s){document.getElementById('ic'+ s).src='icons/animated/'+atr+'.svg';}
+function setIcon(lcc,s){
+		if (lcc == 'Sunny') changeSrc('day',s);
+		else if(lcc== 'Partly cloudy')changeSrc('cloudy-day-1',s);
+		else if(lcc== 'Cloudy')changeSrc('cloudy-day-2',s);
+		else if(lcc== 'Overcast')changeSrc('cloudy',s);
+		else if(lcc== 'Mist')changeSrc('cloudy-day-1',s);
+		//else if(lcc== 'Blowing snow')changeSrc('',s);
+		//else if(lcc== 'Fog')changeSrc('',s);
+		else if(lcc== 'Patchy rain possible')changeSrc('rainy-2',s);
+		else if(lcc== 'Patchy light rain')changeSrc('rainy-1',s);
+		else if(lcc== 'Light rain')changeSrc('rainy-2',s);
+		else if(lcc== 'Light rain shower')changeSrc('rainy-3',s);
+		else if(lcc== 'Moderate rain at times')changeSrc('rainy-4',s);
+		else if(lcc== 'Heavy rain')changeSrc('rainy-5',s);
+		else if(lcc== 'Moderate or heavy rain shower')changeSrc('rainy-6.svg',s);
+		else if(lcc== 'Torrential rain shower')changeSrc('rainy-7',s);
+	
+}
 function getTimeData(city,lc){
-	var timeData = {};
+	var lc = {};
 	var xmlhttp = new XMLHttpRequest();
 	var url = "http://api.weatherapi.com/v1/current.json?key=f8e58ec36d0b48f5aca194718220203&q="+ city +"&aqi=yes";
 
 	function reqListener () {
 		var myArr = JSON.parse(this.responseText);
   		//console.log(this.responseText);
- 		 timeData = {'temp':myArr.current.temp_c,'condition':myArr.current.condition.text};
+ 		 
  		 //console.log(timeData);
- 		 setVal(timeData,lc);
- 		 insert();
+ 		 setVal(lc,myArr);
  		 
 };
 
@@ -148,7 +190,7 @@ var oReq = new XMLHttpRequest();
 oReq.onload = reqListener;
 oReq.open("get", url, true);
 oReq.send();
-return timeData;
+return lc;
 }done();
 
 

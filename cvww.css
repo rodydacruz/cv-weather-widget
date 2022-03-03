@@ -1,5 +1,12 @@
 .glider-cvww{
-	width: 10rem;
+	width: 100$;
+	margin: 1rem;
+}
+.isvg {
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: none;
 }
 
 .thumbs {
@@ -13,8 +20,8 @@
 	border: none;
 	cursor: pointer;
 	display: flex;
-	width: 5rem;
-	height: 5rem;
+	width: 3rem;
+	height: 3rem;
 }
 .thumb:hover {
 	transform: scale(1.1);
@@ -23,3 +30,15 @@
 .thumb:active {
 	transform: scale(0.95);
 }
+
+.isvg {
+	width: 100%;
+}
+
+.wicon{
+	width: 15rem;
+	position: relative;
+	float: right;
+}
+.temp {
+	font-size: 2rem;
