@@ -1,0 +1,25 @@
+.glider-cvww{
+	width: 10rem;
+}
+
+.thumbs {
+	display: flex;
+
+}
+.thumb {
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	width: 5rem;
+	height: 5rem;
+}
+.thumb:hover {
+	transform: scale(1.1);
+	z-index: z-index(default);
+}
+.thumb:active {
+	transform: scale(0.95);
+}

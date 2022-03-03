@@ -7,20 +7,70 @@
 	<script src="glider.js"></script>
 </head>
 <body>
-	<div class="glider-cvwp">
+
+	<article class="glider-cvww">
 
 	<div class="glider-contain">
 		<div class="glider">
 			<div>
-				<img src="map/st.svg">
-				22 C
+				<img src="map/bv.svg">
+				<div class="temp" id="i0"></div>
 				14 C
 				100 km/h
 			<img src="icons/animated/cloudy.svg">
-		</div>
-			<div class="glider">
+			</div>
+			<div>
 				<img src="map/bv.svg">
-				22 C
+				<div class="temp" id="i1"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i2"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i3"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i4"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i5"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i6"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i7"></div>
+				14 C
+				100 km/h
+			<img src="icons/animated/cloudy.svg">
+			</div>
+			<div>
+				<img src="map/bv.svg">
+				<div class="temp" id="i8"></div>
 				14 C
 				100 km/h
 			<img src="icons/animated/cloudy.svg">
@@ -28,9 +78,82 @@
 		</div>
 		<button aria-label="Previous" class="glider-prev">«</button>
   		<button aria-label="Next" class="glider-next">»</button>
-  		<div role="tablist" class="dots"></div>
 
-	</div>
+  		<div class="thumbs">
+  			<button
+  			class="thumb"
+  			data-glider-index="0"
+  			style="background-image: url('map/st.svg');">
+  				
+  			</button>
+  			<button
+  			class="thumb"
+  			data-glider-index="1"
+  			style="background-image: url('map/bv.svg');">
+  				
+  			</button>
+  		</div>
+
+	</article>
+	<div id="id01"></div>
+
+<script>
+var caboVerde = [{},{},{},{},{},{},{},{},{}];
+function done(){
+	var list=[
+	'brava cabo verde',
+	'fogo cabo verde',
+	'praia cabo verde',
+	'maio cabo verde',
+	'boa vista cabo verde',
+	'sal cabo verde',
+	'sao vicente cabo verde',
+	'sao nicolao cabo verde',
+	'saonto antao cabo verde']
+
+	for(i = 0; i <=8; i++){
+		getTimeData(list[i],caboVerde[i]);
+	};
+	
+	
+}
+function insert(){
+	for(i = 0; i <=8; i++){
+		document.getElementById('i'+i).innerHTML = caboVerde[i].temp;
+	};
+
+
+};
+function setVal(timeData,lc){
+	lc = timeData;
+	console.log(lc);
+};
+function getTimeData(city,lc){
+	var timeData = {};
+	var xmlhttp = new XMLHttpRequest();
+	var url = "http://api.weatherapi.com/v1/current.json?key=f8e58ec36d0b48f5aca194718220203&q="+ city +"&aqi=yes";
+
+	function reqListener () {
+		var myArr = JSON.parse(this.responseText);
+  		//console.log(this.responseText);
+ 		 timeData = {'temp':myArr.current.temp_c,'condition':myArr.current.condition.text};
+ 		 //console.log(timeData);
+ 		 setVal(timeData,lc);
+ 		 insert();
+ 		 
+};
+
+
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.open("get", url, true);
+oReq.send();
+return timeData;
+}done();
+
+
+
+</script>
 
 </body>
 <script src="cvww.js"></script>
